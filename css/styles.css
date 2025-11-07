@@ -1,0 +1,41 @@
+html,
+body {
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 10px 20px;
+}
+
+
+header a {
+    color: white;
+    text-decoration: none;
+}
+
+header a:hover {
+    color: purple;
+
+}
+
+table {
+    width: 100%;
+}
+
+table tr:nth-child(even) {
+    background-color: gray;
+}
+
+table tbody tr:nth-child(odd) {
+    background-color: red;
+}
+/*
+header a:first-child {
+    margin-left: 20px;
+}
+*/
