@@ -20,7 +20,6 @@ header a {
 
 header a:hover {
     color: purple;
-
 }
 
 table {
@@ -39,3 +38,55 @@ header a:first-child {
     margin-left: 20px;
 }
 */
+
+.titulo {
+    font-family: grafiti; 
+    font-size: 24px; 
+    padding: 10px;
+    background-image: url(/images/ladrillos.jpg);
+    background-size: auto;
+    background-position: center center;
+    text-align: center;
+    letter-spacing: 5px;
+}
+
+.btn-animacion {
+    background-color: aqua;
+    margin: 50px;
+    /* transition: background-color 0.5s ease; */
+    /*animation: mover 2s ease 1s;*/
+    border: 1px solid aquamarine;
+    border-radius: 1px;
+    box-shadow: -1px -1px ;
+    text-shadow: 
+        1px 1px 2px #000000, /* Sombra oscura para profundidad */
+        -1px -1px 2px #ffffff;
+}
+
+.btn-animacion:hover {
+    background-color: blueviolet;
+}
+
+@keyframes mover {
+    0% {
+        background-color: aqua;  
+        transform: translateX(0) rotate(0deg);
+    }
+    25% {
+        transform: translateX(250px) rotate(45deg);
+    }
+    50% {
+        transform: translateX(0px) rotate(90deg);
+    }
+    75% {
+        transform: translateX(250px) rotate(180deg);
+    }
+    100% {
+        background-color: blueviolet;
+        transform: translateX(0px) rotate(360deg);
+    }
+
+
+}
+
+
