@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .form {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                width: 60%
+            }
+            .form-item {
+                display: flex;
+                flex-direction: column;
+            }
+            .form-error {
+                color:red;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h3>POS de Venta de Boletas</h3>
+        </header>
+        <main>
+            <form name="pos" class="form">
+                <div class="form-item">
+                    <label for="cantidad">Número de boletas</label>
+                    <input name="cantidad" type="text">
+                </div>
+                <div class="form-item">
+                    <label for="precio">Precio de boletas</label>
+                    <input readonly disabled name="precio" value="150" type="number">
+                </div>
+                
+                
+                <div class="form-item">
+                    <label for="total">Total</label>
+                    <input readonly disabled name="total" type="number">
+                </div>
+                <button onclick="calcularTotal()" type="button">Calcular</button>
+            </form>
+            <div id="errorMessage" class="form-error"></div>
+        </main>
+
+        <script>
+                // & and (compara dos expresiones y devuelve 
+                // true siambas son verdaderas)
+                
+                // | or (compara dos expresiones y devuelve 
+                // true si una de las dos es verdadera)   
+                
+                // && and (compara dos expresiones y devuelve 
+                // true siambas son verdaderas) 
+                // Si el primero es falso devuelve falso y 
+                // no evalua la segunda expresion
+                
+                // || or (compara dos expresiones y devuelve 
+                // true si una de las dos es verdadera) 
+                // si el primero es verdadero retornar verdadero 
+                // y no evalue el segundo  
+
+            const calcularTotal = () => {
+                const form = document.forms['pos'];
+                const campoCantidad = form['cantidad'];
+                const campoPrecio = form['precio'];
+                const campoTotal = form['total'];
+                
+                //var cantidad = +campoCantidad.value;
+                //var cantidad = parseInt(campoCantidad.value);
+                var cantidad = Number(campoCantidad.value);
+
+                var precio = +campoPrecio.value;
+
+                if (isNaN(cantidad) || isNaN(precio)) {
+                    //error
+                    const div = document.getElementById("errorMessage");
+                    div.innerText = 'La cantidad o el precio es invalido';
+                    return;
+                }
+
+                campoTotal.value = precio * cantidad;
+            }
+        </script>
+    </body>
+</html>

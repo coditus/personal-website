@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+
+        <script>
+            /*
+            < menor que
+            <= menor o igual que
+            > mayor que
+            >= mayor o igual que
+            == igual ( compara valor)
+            === igual (compara valor y tipo de dato)
+            != distinto 
+            !== distinto
+            */
+
+/*
+            i++  incrementa en uno i
+            ++i incrementa en uno a i
+
+            let  i=1:
+            let y = i++; //y = 1
+            
+            let i=1;
+            let y = ++i; //y = 2;
+
+            let i +=5 ; // i = i + 5 
+            let i -=5 ; // i = i - 5 
+            let i *=5 ; // i = i * 5 
+            let i /=5 ; // i = i / 5 
+
+            let i = 5-4;
+            let i = 5+4;
+            let i = 5*4;
+            let i = 5/4;
+
+*/
+
+            const suma = (a, b) => {
+                return a + b;
+            } 
+
+            const rest = function (a, b) {
+                return a-b;
+            }
+
+            function concatenar() {
+                let texto1= 'hola';
+                let texto2 = 'como estas';
+                let cadenainterpolation = `${texto1} ${texto2}`;  
+            }
+
+            function comprarVariasBoletas(cantidad) {
+                let acum = 0;
+
+                for(let i = 0; i< cantidad; i++) {
+                    acum += calculoBoletaMembresia('basica');
+                }
+                return acum;
+            }
+
+
+            function calculoBoletaMembresia(membresia) {
+                let costoEntrada = 10;
+                let cantidad = 1;
+                let subtotal = costoEntrada * cantidad;
+
+                switch(membresia) {
+                    case 'basica':
+                        subtotal = subtotal - (subtotal * 0.1);
+                        break;
+                    case 'platinum':
+                    case 'plata':
+                        subtotal = subtotal - (subtotal * 0.2);
+                        break;
+                    case 'oro':
+                        subtotal = subtotal - (subtotal * 0.3);
+                        break;
+                    default:
+                        break;
+                }
+/*
+                if (membresia === 'basica') {
+                    subtotal = subtotal - (subtotal * 0.1);
+                } else if (membresia === 'plata') {
+                    subtotal = subtotal - (subtotal * 0.2);
+                } else if (membresia === 'oro') {
+                    subtotal = subtotal - (subtotal * 0.3);
+                } else { }
+*/
+
+                return subtotal;
+            }
+
+
+
+            function calculoBoleta(esVip, edad) {
+                let costoEntrada = 10;
+                let cantidad = 1;
+                let subtotal = costoEntrada * cantidad;
+
+                //truthy or falsy 
+                //cualquier variable que tenga cadena vacio, null, undefined, 0  = false
+
+
+
+                if (esVip) {
+                    subtotal = subtotal - (subtotal * 0.1);
+                }
+
+                if (edad < 18) { 
+                    subtotal = subtotal - (subtotal * 0.2);
+                }
+
+                return subtotal;
+            }
+
+
+
+
+            function verificarEdad() {
+                let edad = 15;
+                const MayoriaEdad = 18;
+
+                if (edad < MayoriaEdad) {
+                    console.log('Es menor de edad');
+                } else {
+                    console.log("Es mayor de edad");
+                }
+            }
+
+            function verificarEdad() {
+                let edad = 15;
+                const MayoriaEdad = 18;
+
+                if (edad < MayoriaEdad) {
+                    console.log('Es menor de edad');
+                } else if (edad == MayoriaEdad) {
+                    console.log('tiene 18 años');
+                } else {
+                    console.log("Es mayor de edad");
+                }
+            }
+
+
+            function suma1() {
+                let a; //declaracion y por defecto recibe el valor undefined
+                a = 1; //asignacion
+                a = 'asd';
+
+                let texto = 'texto';
+                let numero1 = 123;
+                let decimal = 1.1;
+                let booleano = true;
+                let nulo = null;
+                let indefinido = undefined;
+                let arreglos = [];
+                let objetos = {};
+
+                let edad = 15;
+                const MayoriaEdad = 18;
+
+                //truthy y falsy
+
+
+
+
+                if (edad < MayoriaEdad) {
+                    //es menor de edad
+                }
+
+                if (a >0) {
+                    let c = 5;
+
+                }
+                return a +b + c;
+            }
+
+            function suma2() {
+                let a = 5;
+                let b = 4;
+                var c;
+                if (a >0) {
+                    c = 5;
+
+                }
+                return a +b + c;
+
+            }            
+
+            
+
+
+
+
+
+            function main() {
+                /* no usar */
+                var variableA = 123;
+                var variableA = '123';
+
+                variableA = 'otro valor';
+
+                let variableb= 123;
+                variableb= 456;
+                //let variableb='123';
+
+                const pi=3.1415;
+                pi='otro valor';
+            }
+
+            function b() {
+                 let variableb='123';
+            }
+
+            main();
+        </script>
+    </body>
+</html>
