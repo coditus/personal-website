@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <form name="tableDef" method="get" onsubmit="submitHandler(event)" >
+            <div>
+                <label>Indique el numero de Filas</label>
+            </div>
+            <div>
+                <input type="number" name="rowNumber" />
+            </div>
+            <div>
+                <label>Indique el numero de Columnas</label>
+            </div>
+            <div>
+                <input type="number" name="columnNumber" />
+            </div>
+            <button onclick="generateTable()">Generar table</button>
+        </form>
+
+        <div id="tableHolder" style="margin-top: 10px;"></div>
+
+        <script>
+            function generateTable() {
+                let form = document.forms["tableDef"];
+                let rowNumberField = form["rowNumber"];
+                let columnNumberField = form["columnNumber"];
+                let rowValue = rowNumberField.value;
+                let columnValue = columnNumberField.value;
+
+
+                let tableNode = createTableNode(rowValue, columnValue);
+
+                let tableHolder = document.getElementById("tableHolder");
+
+                tableHolder.appendChild(tableNode);
+            }
+
+            function createTableNode(rowNumber=2, columnNumber=2) {
+                let table = document.createElement("table"); //<table>
+                table.setAttribute("style", "border: 1px solid #000") //#000000 #ffffff
+                table.addEventListener("click", () => {console.log("Evento tabla")});
+
+
+                let thead = document.createElement("thead"); //<thead>
+                let tbody = document.createElement("tbody"); //<tbody>
+
+
+                table.appendChild(thead); //<table><thead/></table>
+                table.appendChild(tbody); //<table><thead/><tbody/></table>
+
+                for (let row = 0; row < rowNumber; row++) {
+                    let rowNode = document.createElement("tr");
+                    for (let column = 0; column < columnNumber; column++) {
+                        let columnNode = document.createElement("td");
+                        columnNode.innerText = `Columna ${column}`;
+                        rowNode.appendChild(columnNode);
+                    }
+                    let buttonColumn = document.createElement("button");
+                    buttonColumn.textContent="Presionar";
+                    buttonColumn.addEventListener("click", (event) => { 
+                        event.stopPropagation();
+                        
+                        alert(`Fila seleccionada ${row}`);
+
+
+                        console.log("Evento boton");
+                    });
+
+                    rowNode.appendChild(buttonColumn);
+                    tbody.appendChild(rowNode);
+                }
+
+               return table; 
+            }
+
+            function submitHandler(evt) { 
+                evt.preventDefault(); 
+            }
+
+            function createTableHandler(evt) { 
+                evt.preventDefault(); 
+                generateTable();
+            }
+        </script>
+    </body>
+</html>
